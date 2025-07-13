@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mahin Mess</title>
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #87CEEB, #e0f7fa);
+      margin: 0;
+      padding: 20px;
+    }
+    .welcome {
+      text-align: center;
+      font-size: 2rem;
+      background: linear-gradient(45deg, red, orange, yellow, green, cyan, blue, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 8s linear infinite;
+      margin-bottom: 10px;
+    }
+    @keyframes rainbow {
+      0% {background-position: 0% 50%;}
+      100% {background-position: 100% 50%;}
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    .admin-login { display: none; text-align: center; margin: 10px 0; }
+    .members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px;
+    }
+    .member {
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .member input {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    .notice, .message, .notification {
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="welcome" id="welcome">WELCOME MAHIN MESS</h1>
+  <p class="footer">made by BYAZID</p>
+
+  <div class="admin-login" id="admin-panel">
+    <p><strong>Admin Mode Activated</strong></p>
+  </div>
+
+  <div class="members" id="member-section">
+    <div class="member">
+      <input type="text" placeholder="Name">
+      <input type="file" accept="image/*">
+      <input type="text" placeholder="Room Rent">
+      <input type="text" placeholder="Meal">
+      <input type="text" placeholder="Khala">
+      <input type="text" placeholder="Current Bill">
+      <input type="text" placeholder="Khori">
+      <input type="text" placeholder="Fine">
+      <input type="text" placeholder="Phone Number">
+      <input type="text" placeholder="Address">
+    </div>
+  </div>
+
+  <div class="notice">
+    <h3>NOTICE</h3>
+    <textarea placeholder="Write your mess rules or notice here..." rows="4" style="width:100%;"></textarea>
+  </div>
+
+  <div class="message">
+    <h3>MESSAGES</h3>
+    <textarea placeholder="Type a message..." rows="3" style="width:100%;"></textarea>
+  </div>
+
+  <div class="notification">
+    <h3>NOTIFICATIONS</h3>
+    <ul>
+      <li>Admin-only notifications will appear here.</li>
+    </ul>
+  </div>
+
+  <script>
+    let tapCount = 0;
+    document.getElementById("welcome").addEventListener("click", () => {
+      tapCount++;
+      if (tapCount === 5) {
+        const pass = prompt("Enter Admin Password:");
+        if (pass === "MAHINMESSADMIN99") {
+          document.getElementById("admin-panel").style.display = "block";
+          alert("Admin Mode Activated!");
+        } else {
+          alert("Wrong Password!");
+        }
+        tapCount = 0;
+      }
+      setTimeout(() => { tapCount = 0 }, 2000);
+    });
+  </script>
+</body>
+</html>
